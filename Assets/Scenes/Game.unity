@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88804b9f3c65fd047a74bb79c4aea957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circleCenterUpdateWeigth: 0.2
 --- !u!4 &87962802
 Transform:
   m_ObjectHideFlags: 0

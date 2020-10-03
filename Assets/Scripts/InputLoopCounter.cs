@@ -6,6 +6,9 @@ using System.Linq;
 public class InputLoopCounter : MonoBehaviour
 {
 
+    [SerializeField, Range(0.0f, 1.0f)]
+    private float circleCenterUpdateWeigth;
+
     private float degreesCounter;
     private Vector2 circleCenter;
     private Vector2 previousMousePosition;
@@ -99,7 +102,7 @@ public class InputLoopCounter : MonoBehaviour
     {
         if (averageWithPrevious)
         {
-            newCircleCenter = (circleCenter + newCircleCenter) / 2.0f;
+            newCircleCenter = (1 - circleCenterUpdateWeigth) * circleCenter + circleCenterUpdateWeigth * newCircleCenter;
         }
 
         circleCenter = newCircleCenter;
