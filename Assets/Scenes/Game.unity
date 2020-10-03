@@ -4395,6 +4395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033968119}
+  - component: {fileID: 2033968120}
   m_Layer: 0
   m_Name: Hamster
   m_TagString: Untagged
@@ -4417,6 +4418,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2033968120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033968118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3426cb6b6a0723e41a5be2d7ee95f2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1680971964}
+  animationSpeedNormalizationFactor: 200
 --- !u!1 &2132680159
 GameObject:
   m_ObjectHideFlags: 0

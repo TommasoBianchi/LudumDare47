@@ -21,6 +21,7 @@ public class WheelMover : MonoBehaviour
     private float circleCompletionLimitTime;
 
     public static event Action<float> onCircleTimeTresholdUpdate;
+    public static event Action<float> onWheelVelocityUpdate;
 
     private void Start()
     {
@@ -63,6 +64,12 @@ public class WheelMover : MonoBehaviour
         }
 
         currentAngularVelocity = Mathf.Lerp(currentAngularVelocity, targetAngularVelocity, Time.deltaTime * angularAcceleration);
+
+        if (onWheelVelocityUpdate != null)
+        {
+            onWheelVelocityUpdate(currentAngularVelocity);
+        }
+
         wheel.Rotate(0, 0, -currentAngularVelocity * Time.deltaTime);
     }
 
