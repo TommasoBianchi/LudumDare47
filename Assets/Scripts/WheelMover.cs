@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using System;
 
 public class WheelMover : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class WheelMover : MonoBehaviour
     private float circleTimeTreshold;
     private float circleCompletionLimitTime;
 
+    public event Action<float> onCircleTimeTresholdUpdate;
+
     private void Start()
     {
         circleTimeTreshold = Mathf.Clamp01(circleTimeTreshold);
@@ -35,6 +38,11 @@ public class WheelMover : MonoBehaviour
 
             // Update circle time treshold
             circleTimeTreshold = Mathf.Min(circleTimeTreshold, circleTime / circleTimeTresholdPerc);
+
+            if (onCircleTimeTresholdUpdate != null)
+            {
+                onCircleTimeTresholdUpdate(circleTimeTreshold);
+            }
 
             // Update wheel target angular velocity
             targetAngularVelocity = Mathf.Max(targetAngularVelocity, angularVelocityMultiplier / circleTime);
