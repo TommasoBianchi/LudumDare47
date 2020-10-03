@@ -17,7 +17,7 @@ public class PointsManager : MonoBehaviour
     [SerializeField]
     private RectTransform pointsEffectSpawnPoint;
 
-    private int totalPoints;
+    public static int totalPoints { get; private set; }
 
     private void Start()
     {
