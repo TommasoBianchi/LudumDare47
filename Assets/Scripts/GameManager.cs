@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1.0f;
-
         if (instance == null)
         {
             instance = this;
@@ -20,7 +18,10 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogError("More than one GameManager");
+            return;
         }
+
+        Time.timeScale = 1.0f;
     }
 
     public static void GameOver()
