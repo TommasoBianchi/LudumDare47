@@ -64,7 +64,7 @@ public class WheelMover : MonoBehaviour
         }
 
         currentAngularVelocity = Mathf.Lerp(currentAngularVelocity, targetAngularVelocity, Time.deltaTime * angularAcceleration);
-        transform.Rotate(0, 0, -currentAngularVelocity * Time.deltaTime);
+        wheel.Rotate(0, 0, -currentAngularVelocity * Time.deltaTime);
     }
 
     private void OnCircleTimeTresholdExceeded()

@@ -32,11 +32,11 @@ RectTransform:
   m_Father: {fileID: 5391066249242968446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 143.9725, y: -20}
-  m_SizeDelta: {x: 277.945, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 10, y: 0}
+  m_SizeDelta: {x: 500, y: 30}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &5391066248256057981
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -166,11 +166,11 @@ RectTransform:
   m_Father: {fileID: 5391066249242968446}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 370.4725, y: -20}
-  m_SizeDelta: {x: 135.055, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -10, y: 0}
+  m_SizeDelta: {x: 200, y: 30}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &5391066248791079860
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -358,5 +358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7298d94b2c370b41b53405d1248c8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNameMaxLength: 20
   playerNameText: {fileID: 5391066248256057982}
   playerScoreText: {fileID: 5391066248791079861}

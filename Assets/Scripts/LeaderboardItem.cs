@@ -5,15 +5,18 @@ public class LeaderboardItem : MonoBehaviour
 {
 
     [SerializeField]
+    private int playerNameMaxLength = 20;
+
+    [SerializeField]
     private TextMeshProUGUI playerNameText;
     [SerializeField]
     private TextMeshProUGUI playerScoreText;
 
     public void SetPlayerData(string name, string score)
     {
-        if (name.Length > 15)
+        if (name.Length > playerNameMaxLength)
         {
-            name = name.Substring(0, 12) + "...";
+            name = name.Substring(0, playerNameMaxLength - 3) + "...";
         }
 
         playerNameText.text = name;
