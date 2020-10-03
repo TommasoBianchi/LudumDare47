@@ -7,7 +7,7 @@ public class PointsManager : MonoBehaviour
 
     [SerializeField]
     private int pointsMultiplier = 100;
-    [SerializeField, Range(1.0f, 2.0f)]
+    [SerializeField]
     private float circleTimeExponent = 1.0f;
 
     [SerializeField]

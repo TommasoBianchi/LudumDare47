@@ -12,14 +12,16 @@ public class WheelMover : MonoBehaviour
     [SerializeField]
     private float angularAcceleration = 1;
     [SerializeField]
-    public Transform wheel;
+    private float targetVelocityTimeExponent;
+    [SerializeField]
+    private Transform wheel;
 
     private float currentAngularVelocity;
     private float targetAngularVelocity;
     private float circleTimeTreshold;
     private float circleCompletionLimitTime;
 
-    public event Action<float> onCircleTimeTresholdUpdate;
+    public static event Action<float> onCircleTimeTresholdUpdate;
 
     private void Start()
     {
@@ -45,7 +47,7 @@ public class WheelMover : MonoBehaviour
             }
 
             // Update wheel target angular velocity
-            targetAngularVelocity = Mathf.Max(targetAngularVelocity, angularVelocityMultiplier / circleTime);
+            targetAngularVelocity = Mathf.Max(targetAngularVelocity, angularVelocityMultiplier / Mathf.Pow(circleTime, targetVelocityTimeExponent));
 
             // Update next circle completion limit time
             circleCompletionLimitTime = Time.time + circleTimeTreshold;
