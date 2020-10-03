@@ -81,8 +81,7 @@ public class WheelMover : MonoBehaviour
             onGameOver();
         }
 
-        // Do after seconds
-        //GameManager.GameOver();
+        GameManager.AddFuture(2.0f, () => GameManager.GameOver());
 
         onCircleTimeTresholdUpdate = null;
         onWheelVelocityUpdate = null;

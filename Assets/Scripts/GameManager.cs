@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using System;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class GameManager : MonoBehaviour
     private Transform gameOverPanel;
 
     private static GameManager instance;
+
+    private static List<Tuple<float, Action>> futures;
 
     private void Start()
     {
@@ -22,7 +26,26 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        futures = new List<Tuple<float, Action>>();
         Time.timeScale = 1.0f;
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < futures.Count; ++i)
+        {
+            var (futureTime, callback) = futures[i];
+            if (Time.time > futureTime)
+            {
+                callback();
+                futures.RemoveAt(i);
+            }
+        }
+    }
+
+    public static void AddFuture(float futureTime, Action callback)
+    {
+        futures.Add(new Tuple<float, Action>(Time.time + futureTime, callback));
     }
 
     public static void GameOver()

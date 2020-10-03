@@ -15,7 +15,14 @@ public class SaveScorePanel : MonoBehaviour
     public void SaveScore()
     {
         string playerName = playerNameInput.text;
+
+        if (playerName.Length < 3)
+        {
+            return;
+        }
+
         HighscoreManager.playerName = playerName;
         HighscoreManager.SubmitScore(PointsManager.totalPoints);
+        gameObject.SetActive(false);
     }
 }
