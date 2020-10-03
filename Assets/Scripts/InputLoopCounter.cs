@@ -20,6 +20,7 @@ public class InputLoopCounter : MonoBehaviour
 
     private void Start()
     {
+        degreesCounter = 0;
         UpdateCircleCenter(new Vector2(Screen.width / 2.0f, Screen.height / 2.0f), averageWithPrevious: false);
         lastCirclePoints = new List<Vector2>();
         circleStarted = false;

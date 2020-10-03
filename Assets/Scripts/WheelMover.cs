@@ -28,6 +28,7 @@ public class WheelMover : MonoBehaviour
         circleTimeTreshold = Mathf.Clamp01(circleTimeTreshold);
         circleTimeTreshold = Mathf.Infinity;
         currentAngularVelocity = 0.0f;
+        targetAngularVelocity = 0.0f;
         circleCompletionLimitTime = Mathf.Infinity;
 
         InputLoopCounter.onCircleCompleted += (circleTime) =>
@@ -68,7 +69,6 @@ public class WheelMover : MonoBehaviour
 
     private void OnCircleTimeTresholdExceeded()
     {
-        Debug.LogError("Game over");
-        EditorApplication.isPlaying = false;
+        GameManager.GameOver();
     }
 }
