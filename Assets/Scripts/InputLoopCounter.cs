@@ -109,4 +109,9 @@ public class InputLoopCounter : MonoBehaviour
         circleCenter = newCircleCenter;
         transform.position = Camera.main.ScreenToWorldPoint((Vector3)circleCenter + Vector3.forward * 10);
     }
+
+    private void OnDestroy()
+    {
+        onCircleCompleted = null;
+    }
 }

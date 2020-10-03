@@ -77,4 +77,10 @@ public class WheelMover : MonoBehaviour
     {
         GameManager.GameOver();
     }
+
+    private void OnDestroy()
+    {
+        onCircleTimeTresholdUpdate = null;
+        onWheelVelocityUpdate = null;
+    }
 }
