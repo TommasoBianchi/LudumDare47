@@ -4562,6 +4562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1680971964}
   animationSpeedNormalizationFactor: 200
+  explosionPrefab: {fileID: 7378939525951573030, guid: 3a51c3690a0a49645a547bb33ce1d7cc, type: 3}
 --- !u!1 &2132680159
 GameObject:
   m_ObjectHideFlags: 0

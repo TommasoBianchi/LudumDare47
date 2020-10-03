@@ -22,6 +22,7 @@ public class WheelMover : MonoBehaviour
 
     public static event Action<float> onCircleTimeTresholdUpdate;
     public static event Action<float> onWheelVelocityUpdate;
+    public static event Action onGameOver;
 
     private void Start()
     {
@@ -75,12 +76,23 @@ public class WheelMover : MonoBehaviour
 
     private void OnCircleTimeTresholdExceeded()
     {
-        GameManager.GameOver();
+        if (onGameOver != null)
+        {
+            onGameOver();
+        }
+
+        // Do after seconds
+        //GameManager.GameOver();
+
+        onCircleTimeTresholdUpdate = null;
+        onWheelVelocityUpdate = null;
+        onGameOver = null;
     }
 
     private void OnDestroy()
     {
         onCircleTimeTresholdUpdate = null;
         onWheelVelocityUpdate = null;
+        onGameOver = null;
     }
 }
