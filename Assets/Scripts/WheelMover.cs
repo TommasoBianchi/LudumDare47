@@ -14,6 +14,8 @@ public class WheelMover : MonoBehaviour
     private float targetVelocityTimeExponent;
     [SerializeField]
     private Transform wheel;
+    [SerializeField]
+    private float gameOverWaitTime = 3.0f;
 
     private float currentAngularVelocity;
     private float targetAngularVelocity;
@@ -60,7 +62,6 @@ public class WheelMover : MonoBehaviour
         if (Time.time > circleCompletionLimitTime)
         {
             OnCircleTimeTresholdExceeded();
-            return;
         }
 
         currentAngularVelocity = Mathf.Lerp(currentAngularVelocity, targetAngularVelocity, Time.deltaTime * angularAcceleration);
@@ -78,7 +79,7 @@ public class WheelMover : MonoBehaviour
 
         onGameOver?.Invoke();
 
-        GameManager.AddFuture(2.0f, () => GameManager.GameOver());
+        GameManager.AddFuture(gameOverWaitTime, () => GameManager.GameOver());
 
         onCircleTimeTresholdUpdate = null;
         onWheelVelocityUpdate = null;

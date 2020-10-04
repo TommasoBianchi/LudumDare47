@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
         }
 
         futures = new List<Tuple<float, Action>>();
-        Time.timeScale = 1.0f;
     }
 
     private void Update()
@@ -48,14 +47,12 @@ public class GameManager : MonoBehaviour
 
     public static void GameOver()
     {
-        Time.timeScale = 0.0f;
         GameOverPanel gameOverPanel = FindObjectOfType<GameOverPanel>(includeInactive: true);
         gameOverPanel.gameObject.SetActive(true);
     }
 
     public static void Play()
     {
-        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Game");
     }
 
