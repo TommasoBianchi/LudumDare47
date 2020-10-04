@@ -44,6 +44,9 @@ public class WheelMover : MonoBehaviour
                 OnCircleTimeTresholdExceeded();
             }
 
+            // Play SFX
+            SoundManager.PlayWheelRotate();
+
             // Update circle time treshold
             circleTimeTreshold = Mathf.Min(circleTimeTreshold, circleTime / circleTimeTresholdPerc);
 

@@ -67,12 +67,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6380411198484158383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6eb6ee68f52a724bb0070982dc9872b, type: 3}
+  m_Script: {fileID: 11500000, guid: ef956cd14d64f5a49bfdfbf3e9b05352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClicked: {fileID: 8300000, guid: facbcb1b55a3a524a8e2b43291a8bfbd, type: 3}
   explosion: {fileID: 8300000, guid: 829de350b3259f34782f387849c855ce, type: 3}
-  wheelRotate: {fileID: 0}
+  wheelRotate: {fileID: 8300000, guid: df25222954533f449a82b8a484527092, type: 3}
+  menuMusic: {fileID: 8300000, guid: 7aabbfd089007464ab0a896d513357f2, type: 3}
+  gameMusic: {fileID: 8300000, guid: a4305195f6c4e9c418273259a4a39eab, type: 3}
 --- !u!82 &-532493618300492844
 AudioSource:
   m_ObjectHideFlags: 0
@@ -84,10 +86,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

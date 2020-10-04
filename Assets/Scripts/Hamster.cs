@@ -17,7 +17,8 @@ public class Hamster : MonoBehaviour
         WheelMover.onGameOver += () =>
         {
             Instantiate(explosionPrefab, transform.position, explosionPrefab.transform.rotation);
-            SFXManager.PlayExplosion();
+            SoundManager.PlayExplosion();
+            SoundManager.StopMusic();
             WheelMover.onWheelVelocityUpdate -= UpdateAnimationSpeed;
             Destroy(gameObject);
         };

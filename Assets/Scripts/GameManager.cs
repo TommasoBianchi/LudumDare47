@@ -49,16 +49,19 @@ public class GameManager : MonoBehaviour
     {
         GameOverPanel gameOverPanel = FindObjectOfType<GameOverPanel>(includeInactive: true);
         gameOverPanel.gameObject.SetActive(true);
+        SoundManager.PlayMenuMusic();
     }
 
     public static void Play()
     {
         SceneManager.LoadScene("Game");
+        SoundManager.PlayGameMusic();
     }
 
     public static void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        SoundManager.PlayMenuMusic();
     }
 
     public static void Exit()

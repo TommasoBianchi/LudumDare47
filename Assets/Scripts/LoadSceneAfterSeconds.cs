@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class LoadSceneAfterSeconds : MonoBehaviour
 {
@@ -8,9 +9,15 @@ public class LoadSceneAfterSeconds : MonoBehaviour
     private string sceneName;
     [SerializeField]
     private float time;
+    [SerializeField]
+    private UnityEvent onSceneLoad;
 
     private void Start()
     {
-        GameManager.AddFuture(time, () => SceneManager.LoadScene(sceneName));
+        GameManager.AddFuture(time, () =>
+        {
+            SceneManager.LoadScene(sceneName);
+            onSceneLoad.Invoke();
+        });
     }
 }
