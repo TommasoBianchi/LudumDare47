@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     private static List<Tuple<float, Action>> futures;
 
+    private static bool skipTutorial = false;
+
     private void Start()
     {
         if (instance == null)
@@ -54,8 +56,20 @@ public class GameManager : MonoBehaviour
 
     public static void Play()
     {
-        SceneManager.LoadScene("Game");
-        SoundManager.PlayGameMusic();
+        if (skipTutorial)
+        {
+            SceneManager.LoadScene("Game");
+            SoundManager.PlayGameMusic();
+        }
+        else
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+    }
+
+    public static void SkipTutorial()
+    {
+        skipTutorial = true;
     }
 
     public static void GoToMainMenu()
