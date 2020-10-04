@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b414249f816c149b35eadb0451b56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleTimeTresholdPerc: 0.5
+  circleTimeTresholdPerc: 0.75
   angularVelocityMultiplier: 150
   angularAcceleration: 1
   targetVelocityTimeExponent: 1.5
@@ -3428,7 +3428,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 3055269373395953029, guid: a4c81cf35b871d34eb0825c7886b62e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1

@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MainMenu
-  time: 1
+  time: 0
   onSceneLoad:
     m_PersistentCalls:
       m_Calls:
