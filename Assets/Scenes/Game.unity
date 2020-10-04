@@ -733,6 +733,7 @@ MonoBehaviour:
   angularAcceleration: 1
   targetVelocityTimeExponent: 1.5
   wheel: {fileID: 1589167041}
+  gameOverWaitTime: 3
 --- !u!4 &190554199
 Transform:
   m_ObjectHideFlags: 0
@@ -2208,6 +2209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1090654920}
+  - component: {fileID: 1090654922}
   - component: {fileID: 1090654921}
   m_Layer: 0
   m_Name: Trail
@@ -2224,7 +2226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090654919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.52, y: 1.36, z: 0}
+  m_LocalPosition: {x: -1.58, y: 1.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1589167041}
@@ -2271,10 +2273,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Time: 0.6
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.4
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -2309,7 +2311,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 46646
+      atime1: 46453
       atime2: 0
       atime3: 0
       atime4: 0
@@ -2328,6 +2330,22 @@ TrailRenderer:
   m_MinVertexDistance: 0.05
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1090654922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090654919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fcdfc20b744df449d463d8f189deb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowColor: {r: 1, g: 0.86226416, b: 0.86226416, a: 1}
+  fastColor: {r: 1, g: 0, b: 0, a: 1}
+  fastSpeedTreshold: 1000
+  alphaMultiplier: 0.5
 --- !u!1 &1096875030
 GameObject:
   m_ObjectHideFlags: 0
