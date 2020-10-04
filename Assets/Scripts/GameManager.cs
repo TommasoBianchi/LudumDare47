@@ -7,9 +7,6 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField]
-    private Transform gameOverPanel;
-
     private static GameManager instance;
 
     private static List<Tuple<float, Action>> futures;
@@ -19,6 +16,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -51,18 +49,19 @@ public class GameManager : MonoBehaviour
     public static void GameOver()
     {
         Time.timeScale = 0.0f;
-        instance.gameOverPanel.gameObject.SetActive(true);
+        GameOverPanel gameOverPanel = FindObjectOfType<GameOverPanel>(includeInactive: true);
+        gameOverPanel.gameObject.SetActive(true);
     }
 
-    public static void Retry()
+    public static void Play()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Game");
     }
 
     public static void GoToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public static void Exit()

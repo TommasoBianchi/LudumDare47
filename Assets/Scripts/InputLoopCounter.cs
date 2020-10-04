@@ -80,10 +80,7 @@ public class InputLoopCounter : MonoBehaviour
         degreesCounter -= 360.0f;
         float circleDuration = Time.time - circleStartTime;
 
-        if (onCircleCompleted != null)
-        {
-            onCircleCompleted(circleDuration);
-        }
+        onCircleCompleted?.Invoke(circleDuration);
 
         // Compute new circle center
         Vector2 lastCirclePointsSum = lastCirclePoints.Aggregate<Vector2, Vector2>(Vector2.zero, (a, b) => a + b);

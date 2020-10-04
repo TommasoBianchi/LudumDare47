@@ -19,6 +19,7 @@ public class WheelMover : MonoBehaviour
     private float targetAngularVelocity;
     private float circleTimeTreshold;
     private float circleCompletionLimitTime;
+    private bool gameOverDetected;
 
     public static event Action<float> onCircleTimeTresholdUpdate;
     public static event Action<float> onWheelVelocityUpdate;
@@ -31,6 +32,7 @@ public class WheelMover : MonoBehaviour
         currentAngularVelocity = 0.0f;
         targetAngularVelocity = 0.0f;
         circleCompletionLimitTime = Mathf.Infinity;
+        gameOverDetected = false;
 
         InputLoopCounter.onCircleCompleted += (circleTime) =>
         {
@@ -43,10 +45,7 @@ public class WheelMover : MonoBehaviour
             // Update circle time treshold
             circleTimeTreshold = Mathf.Min(circleTimeTreshold, circleTime / circleTimeTresholdPerc);
 
-            if (onCircleTimeTresholdUpdate != null)
-            {
-                onCircleTimeTresholdUpdate(circleTimeTreshold);
-            }
+            onCircleTimeTresholdUpdate?.Invoke(circleTimeTreshold);
 
             // Update wheel target angular velocity
             targetAngularVelocity = Mathf.Max(targetAngularVelocity, angularVelocityMultiplier / Mathf.Pow(circleTime, targetVelocityTimeExponent));
@@ -66,20 +65,18 @@ public class WheelMover : MonoBehaviour
 
         currentAngularVelocity = Mathf.Lerp(currentAngularVelocity, targetAngularVelocity, Time.deltaTime * angularAcceleration);
 
-        if (onWheelVelocityUpdate != null)
-        {
-            onWheelVelocityUpdate(currentAngularVelocity);
-        }
+        onWheelVelocityUpdate?.Invoke(currentAngularVelocity);
 
         wheel.Rotate(0, 0, -currentAngularVelocity * Time.deltaTime);
     }
 
     private void OnCircleTimeTresholdExceeded()
     {
-        if (onGameOver != null)
-        {
-            onGameOver();
-        }
+        if (gameOverDetected) return;
+
+        gameOverDetected = true;
+
+        onGameOver?.Invoke();
 
         GameManager.AddFuture(2.0f, () => GameManager.GameOver());
 
