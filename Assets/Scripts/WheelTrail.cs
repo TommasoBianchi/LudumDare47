@@ -27,8 +27,6 @@ public class WheelTrail : MonoBehaviour
             GradientAlphaKey[] alphaKeys = gradient.alphaKeys;
             GradientColorKey[] colorKeys = gradient.colorKeys;
 
-            Debug.Log("Alpha key 0 has alpha = " + alphaKeys[0].alpha + " and time = " + alphaKeys[0].time);
-
             alphaKeys[0].alpha = fastness * alphaMultiplier;
             colorKeys[0].color = Color.Lerp(slowColor, fastColor, fastness);
 

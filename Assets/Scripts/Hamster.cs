@@ -12,15 +12,18 @@ public class Hamster : MonoBehaviour
 
     private void Start()
     {
-        WheelMover.onWheelVelocityUpdate += (speed) =>
-        {
-            animator.SetFloat("Speed", speed / animationSpeedNormalizationFactor);
-        };
+        WheelMover.onWheelVelocityUpdate += UpdateAnimationSpeed;
 
         WheelMover.onGameOver += () =>
         {
             Instantiate(explosionPrefab, transform.position, explosionPrefab.transform.rotation);
+            WheelMover.onWheelVelocityUpdate -= UpdateAnimationSpeed;
             Destroy(gameObject);
         };
+    }
+
+    private void UpdateAnimationSpeed(float speed)
+    {
+        animator.SetFloat("Speed", speed / animationSpeedNormalizationFactor);
     }
 }

@@ -64,6 +64,12 @@ public class WheelMover : MonoBehaviour
             OnCircleTimeTresholdExceeded();
         }
 
+        if (gameOverDetected)
+        {
+            // Slow down after game over
+            targetAngularVelocity = Mathf.Lerp(targetAngularVelocity, 0.0f, Time.deltaTime * angularAcceleration);
+        }
+
         currentAngularVelocity = Mathf.Lerp(currentAngularVelocity, targetAngularVelocity, Time.deltaTime * angularAcceleration);
 
         onWheelVelocityUpdate?.Invoke(currentAngularVelocity);
@@ -80,10 +86,6 @@ public class WheelMover : MonoBehaviour
         onGameOver?.Invoke();
 
         GameManager.AddFuture(gameOverWaitTime, () => GameManager.GameOver());
-
-        onCircleTimeTresholdUpdate = null;
-        onWheelVelocityUpdate = null;
-        onGameOver = null;
     }
 
     private void OnDestroy()
